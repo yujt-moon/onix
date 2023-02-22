@@ -103,8 +103,6 @@ protected_mode:
     mov esp, 0x1000 ; 修改栈顶（随便写的）
 
     mov byte [0xb8000], 'P'
-
-    mov byte [0x200000], 'P'
     
 jmp $
 

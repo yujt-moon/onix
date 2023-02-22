@@ -1,14 +1,20 @@
-%.bin: %.asm
+BUILD:=../build
+SRC:=.
+
+$(BUILD)/boot/%.bin: $(SRC)/boot/%.asm
+	$(shell mkdir -p $(dir $@))
 	nasm -f bin $< -o $@
 
-master.img: boot.bin loader.bin
-	dd if=boot.bin of=../bochs/master.img bs=512 count=1 conv=notrunc
-	dd if=loader.bin of=../bochs/master.img bs=512 count=4 seek=2 conv=notrunc
+$(BUILD)/master.img: $(BUILD)/boot/boot.bin \
+	$(BUILD)/boot/loader.bin
+	$(shell cp ../bochs/master.img $(BUILD))
+	dd if=$(BUILD)/boot/boot.bin of=$@ bs=512 count=1 conv=notrunc
+	dd if=$(BUILD)/boot/loader.bin of=$@ bs=512 count=4 seek=2 conv=notrunc
 
 .PHONY: clean
 clean:
-	rm -rf *.bin *.out
+	rm -rf $(BUILD)
 
 .PHONY: bochs
-bochs: master.img
+bochs: $(BUILD)/master.img
 	../bochs/bin/bochs -q -f ../bochs/bochsrc
