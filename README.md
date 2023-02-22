@@ -1,0 +1,1 @@
+运行makefile之前需要将bochs/bochsrc文件中的硬编码地址修改成当前的地址
