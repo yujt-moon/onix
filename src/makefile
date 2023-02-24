@@ -36,4 +36,5 @@ clean:
 
 .PHONY: bochs
 bochs: $(BUILD)/master.img
-	../bochs/bin/bochs -q -f ../bochs/bochsrc
+	#../bochs/bin/bochs -q -f ../bochs/bochsrc
+	bochs -q -f ../bochs/bochsrc
