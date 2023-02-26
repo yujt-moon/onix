@@ -14,7 +14,7 @@ mov sp, 0x7c00
 mov si, booting
 call print
 
-xchg bx, bx; bochs 魔术断点
+; xchg bx, bx; bochs 魔术断点
 
 mov edi, 0x1000 ; 读取的目标内存
 mov ecx, 2      ; 起始扇区
