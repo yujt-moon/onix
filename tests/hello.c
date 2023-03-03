@@ -1,7 +1,10 @@
 #include <stdio.h>
 
-int main(int argc, char const *argv[])
+char message[] = "hello world!!!\n";
+char buf[1024];     // .bss
+
+int main()
 {
-    printf("hello world!!!\n");
+    printf(message);
     return 0;
 }
