@@ -2,6 +2,7 @@
 #include <onix/stdarg.h>
 #include <onix/types.h>
 #include <onix/stdio.h>
+#include <onix/printk.h>
 
 static u8 buf[1024];
 
