@@ -6,6 +6,7 @@
     },
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "task.h": "c"
+        "task.h": "c",
+        "rtc.h": "c"
     }
 }
